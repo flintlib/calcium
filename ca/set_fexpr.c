@@ -82,6 +82,9 @@ _ca_set_fexpr(ca_t res, fexpr_vec_t inputs, ca_vec_t outputs, const fexpr_t expr
             case FEXPR_TribonacciConstant:
                 ca_tribonacci_constant(res, ctx);
                 return 1;
+            case FEXPR_TetranacciConstant:
+                ca_tetranacci_constant(res, ctx);
+                return 1;
             case FEXPR_Infinity:
                 ca_pos_inf(res, ctx);
                 return 1;

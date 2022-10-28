@@ -318,6 +318,7 @@ void ca_pi_i(ca_t res, ca_ctx_t ctx);
 void ca_euler(ca_t res, ca_ctx_t ctx);
 
 void ca_tribonacci_constant(ca_t res, ca_ctx_t ctx);
+void ca_tetranacci_constant(ca_t res, ca_ctx_t ctx);
 
 void ca_unknown(ca_t x, ca_ctx_t ctx);
 
