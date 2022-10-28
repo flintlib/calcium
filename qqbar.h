@@ -208,6 +208,7 @@ void qqbar_i(qqbar_t res);
 void qqbar_phi(qqbar_t res);
 
 void qqbar_tribonacci_constant(qqbar_t res);
+void qqbar_tetranacci_constant(qqbar_t res);
 
 /* Random generation */
 
