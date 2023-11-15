@@ -1,3 +1,11 @@
+# See FLINT
+
+2023: Calcium has been merged into FLINT. The present repository is archived and will no longer be updated. See
+
+https://github.com/flintlib/flint/
+
+for new developments!
+
 # Calcium
 
 Calcium (pronounced “kalkium”) is a C library for exact
