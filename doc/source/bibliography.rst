@@ -5,7 +5,7 @@ Bibliography
 
 (In the PDF edition, this section is empty. See the bibliography listing at the end of the document.)
 
-All referenced works: [BBK2014]_, [BF2020]_, [BFSS2006]_, [Boe2020]_, [Car2004]_, [Cho1999]_, [Coh1996]_, [Coh2000]_, [Fie2007]_, [GCL1992]_, [Har2010]_, [Har2015]_, [Har2018]_, [Joh2017]_, [JR1999]_, [Mos1971]_, [MP2006]_, [RF1994]_, [Ric1992]_, [Ric1995]_, [Ric1997]_, [Ric2007]_, [Ric2009]_, [Ste2002]_, [Ste2010]_, [Str1997]_, [Str2012]_, [vdH1995]_, [vdH2006]_, [vHP2012]_, [Zip1985]_.
+All referenced works: [BBK2014]_, [BF2020]_, [BFSS2006]_, [Boe2020]_, [Car2004]_, [Cho1999]_, [Coh1996]_, [Coh2000]_, [Fie2007]_, [GCL1992]_, [Har2010]_, [Har2015]_, [Har2018]_, [Joh2017]_, [JR1999]_, [Mos1971]_, [MP2006]_, [RF1994]_, [Ric1992]_, [Ric1995]_, [Ric1997]_, [Ric2007]_, [Ric2009]_, [Ste2002]_, [Ste2010]_, [Str1997]_, [Str2012]_, [Wol1998]_, [vdH1995]_, [vdH2006]_, [vHP2012]_, [Zip1985]_.
 
 .. [BBK2014] \D. H. Bailey, J. M. Borwein and A. D. Kaiser. "Automated simplification of large symbolic expressions". Journal of Symbolic Computation Volume 60, January 2014, Pages 120-136. https://doi.org/10.1016/j.jsc.2013.09.001
 
@@ -60,6 +60,8 @@ All referenced works: [BBK2014]_, [BF2020]_, [BFSS2006]_, [Boe2020]_, [Car2004]_
 .. [Str1997] \A. Strzebonski. "Computing in the field of complex algebraic numbers". Journal of Symbolic Computation (1997) 24, 647-656. https://doi.org/10.1006/jsco.1997.0158
 
 .. [Str2012] \A. Strzebonski. "Real root isolation for exp-log-arctan functions". Journal of Symbolic Computation 47 (2012) 282–314. https://doi.org/10.1016/j.jsc.2011.11.004
+
+.. [Wol1998] \D. A. Wolfram. "Solving Generalized Fibonacci Recurrences". The Fibonacci Quarterly 36 (1998) 129-145.
 
 .. [vHP2012] \M. van Hoeij and V. Pal. "Isomorphisms of algebraic number fields". Journal de Théorie des Nombres de Bordeaux, Vol. 24, No. 2 (2012), pp. 293-305. https://doi.org/10.2307/43973105
 

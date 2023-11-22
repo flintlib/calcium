@@ -129,6 +129,138 @@ fexpr_get_acb_raw(acb_t res, const fexpr_t expr, slong prec)
             return 1;
         }
 
+        if (op == FEXPR_TribonacciConstant)
+        {
+            /* Subexpressions */
+            arb_t r33, r33p, r33m;
+
+            /* Init */
+            arb_init(r33);
+            arb_init(r33p);
+            arb_init(r33m);
+
+            /* r33 := 3*sqrt(33) */
+            arb_sqrt_ui(r33, 33, prec);
+            arb_mul_ui(r33, r33, 3, prec);
+
+            /* r33p := cbrt(19 + r33) */
+            arb_add_ui(r33p, r33, 19, prec);
+            arb_root_ui(r33p, r33p, 3, prec);
+
+            /* r33m := cbrt(19 - r33) */
+            arb_sub_si(r33m, r33, 19, prec);
+            arb_neg(r33m, r33m);
+            arb_root_ui(r33m, r33m, 3, prec);
+
+            /* res := 1 */
+            arb_one(acb_realref(res));
+
+            /* res += r33p */
+            arb_add(acb_realref(res), acb_realref(res), r33p, prec);
+
+            /* res += r33m */
+            arb_add(acb_realref(res), acb_realref(res), r33m, prec);
+
+            /* res /= 3 */
+            arb_div_ui(acb_realref(res), acb_realref(res), 3, prec);
+
+            /* zero imag part */
+            arb_zero(acb_imagref(res));
+
+            /* Free */
+            arb_clear(r33);
+            arb_clear(r33p);
+            arb_clear(r33m);
+
+            return 1;
+        }
+
+        if (op == FEXPR_TetranacciConstant)
+        {
+            /* Subexpressions */
+            arb_t t1, t2, l1, p1;
+
+            /* Init */
+            arb_init(t1);
+            arb_init(t2);
+            arb_init(l1);
+            arb_init(p1);
+
+            /* t1 := 3*sqrt(1689) */
+            arb_sqrt_ui(t1, 1689, prec);
+            arb_mul_ui(t1, t1, 3, prec);
+
+            /* l1 := (cbrt(t1 - 65) - cbrt(t1 + 65)) / (12 * cbrt(2)) */
+            arb_zero(l1);
+
+            /* First part of l1 */
+            arb_sub_ui(t2, t1, 65, prec);
+            arb_root_ui(t2, t2, 3, prec);
+
+            arb_add(l1, l1, t2, prec);
+
+            /* Second part of l1 */
+            arb_add_ui(t2, t1, 65, prec);
+            arb_root_ui(t2, t2, 3, prec);
+
+            arb_sub(l1, l1, t2, prec);
+
+            /* Denominator of l1 */
+            arb_set_ui(t2, 2);
+            arb_root_ui(t2, t2, 3, prec);
+            arb_mul_ui(t2, t2, 12, prec);
+
+            /* Combine l1 */
+            arb_div(l1, l1, t2, prec);
+
+            /* p1 := sqrt(l1 + 11/48) */
+            arb_set_ui(p1, 11);
+            arb_div_ui(p1, p1, 48, prec);
+
+            arb_add(p1, p1, l1, prec);
+            arb_sqrt(p1, p1, prec);
+
+            /* t2 := 1/4 - p1 */
+            arb_one(t2);
+            arb_mul_2exp_si(t2, t2, -2);
+            arb_add(t2, t2, p1, prec);
+
+            /* Invert p1 */
+            arb_inv(p1, p1, prec);
+
+            /* Final result */
+            arb_one(acb_realref(res));
+            arb_div_ui(acb_realref(res), acb_realref(res), 6, prec);
+
+            arb_set_ui(t1, 7);
+            arb_div_ui(t1, t1, 24, prec);
+            arb_mul(t1, t1, p1, prec);
+            arb_add(acb_realref(res), acb_realref(res), t1, prec);
+
+            arb_sqr(t1, t2, prec);
+            arb_add(acb_realref(res), acb_realref(res), t1, prec);
+
+            arb_mul_ui(t1, t2, 2, prec);
+            arb_mul(t1, t1, l1, prec);
+            arb_mul(t1, t1, p1, prec);
+            arb_sub(acb_realref(res), acb_realref(res), t1, prec);
+
+            arb_sqrt(acb_realref(res), acb_realref(res), prec);
+
+            arb_add(acb_realref(res), acb_realref(res), t2, prec);
+
+            /* zero imag part */
+            arb_zero(acb_imagref(res));
+
+            /* Free */
+            arb_clear(t1);
+            arb_clear(t2);
+            arb_clear(l1);
+            arb_clear(p1);
+
+            return 1;
+        }
+
         acb_indeterminate(res);
         return 0;
     }
